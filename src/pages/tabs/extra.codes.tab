@@ -1,0 +1,127 @@
+ // //  Functions to handle Tab Switching
+  // const handleTab1 = () => {
+  //   // update the state to tab1
+  //   setActiveTab("tab1");
+  // };
+  // const handleTab2 = () => {
+  //   // update the state to tab2
+  //   setActiveTab("tab2");
+  // };
+  // const handleTab3 = () => {
+  //   // update the state to tab2
+  //   setActiveTab("tab3");
+  // };
+  // const handleTab4 = () => {
+  //   // update the state to tab2
+  //   setActiveTab("tab4");
+  // };
+  // const [activeTab, setActiveTab] = useState("tab1");
+  // return (
+  //   <div className="Tabs">
+  //     {/* Tab nav */}
+  //     <ul className="nav">
+  //       <li
+  //         className={activeTab === "tab1" ? "active" : ""}
+  //         onClick={handleTab1}
+  //       >
+  //         Club Tab
+  //       </li>
+  //       <li
+  //         className={activeTab === "tab2" ? "active" : ""}
+  //         onClick={handleTab2}
+  //       >
+  //         Player Tab
+  //       </li>
+  //       <li
+  //         className={activeTab === "tab3" ? "active" : ""}
+  //         onClick={handleTab3}
+  //       >
+  //         Events Tab
+  //       </li>
+  //       <li
+  //         className={activeTab === "tab4" ? "active" : ""}
+  //         onClick={handleTab4}
+  //       >
+  //         FA Tab
+  //       </li>
+  //     </ul>
+  //     <div className="outlet">
+  //       <div title="Tab 1" id="tab1" activeTab={activeTab}>
+  //         <ClubTab ></ClubTab>
+  //       </div>
+  //       <div title="Tab 2" id="tab2" activeTab={activeTab}>
+  //         <ClubTab ></ClubTab>
+  //       </div>
+  //       <div title="Tab 3" id="tab3" activeTab={activeTab}>
+  //         <ClubTab ></ClubTab>
+  //       </div>
+  //       <div title="Tab 4" id="tab4" activeTab={activeTab}>
+  //         <ClubTab ></ClubTab>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
+
+  import { useEffect, useState } from 'react';
+
+const imageMimeType = /image\/(png|jpg|jpeg)/i;
+
+function App() {
+  const [file, setFile] = useState(null);
+  const [fileDataURL, setFileDataURL] = useState(null);
+
+  const changeHandler = (e) => {
+    const file = e.target.files[0];
+    if (!file.type.match(imageMimeType)) {
+      alert("Image mime type is not valid");
+      return;
+    }
+    setFile(file);
+  }
+  useEffect(() => {
+    let fileReader, isCancel = false;
+    if (file) {
+      fileReader = new FileReader();
+      fileReader.onload = (e) => {
+        const { result } = e.target;
+        if (result && !isCancel) {
+          setFileDataURL(result)
+        }
+      }
+      fileReader.readAsDataURL(file);
+    }
+    return () => {
+      isCancel = true;
+      if (fileReader && fileReader.readyState === 1) {
+        fileReader.abort();
+      }
+    }
+
+  }, [file]);
+
+  return (
+    <>
+      <form>
+        <p>
+          <label htmlFor='image'> Browse images  </label>
+          <input
+            type="file"
+            id='image'
+            accept='.png, .jpg, .jpeg'
+            onChange={changeHandler}
+          />
+        </p>
+        <p>
+          <input type="submit" label="Upload" />
+        </p>
+      </form>
+      {fileDataURL ?
+        <p className="img-preview-wrapper">
+          {
+            <img src={fileDataURL} alt="preview" />
+          }
+        </p> : null}
+    </>
+  );
+}
+export default App;

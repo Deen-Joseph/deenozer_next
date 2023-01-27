@@ -276,3 +276,30 @@
     transform: rotate(0deg);
   }
 }
+
+
+.row-home{
+  /* display: flex; */
+  /* justify-content: space-between; */
+  margin:1% 10% 10% ;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.high{
+  height: 0px;
+}
+.high2{
+  margin-top: 35px;
+  }
+@media (max-width: 1350px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}

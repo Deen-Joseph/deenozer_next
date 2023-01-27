@@ -1,0 +1,65 @@
+.playerProfile .card {
+  border-radius: 10px;
+  background: #29335c;
+  color: white;
+  margin: 2rem;
+}
+.search {
+  height: 38.7rem;
+  overflow: hidden scroll;
+}
+
+.fa_img_logo {
+  width: 60%;
+}
+
+
+.fa_logo {
+  height: 38.7rem;
+  width: 25rem;
+  padding: 2em;
+}
+
+.details {
+  text-align: center;
+}
+
+.student-profile .card p {
+  color: white;
+}
+
+.table {
+  margin: 0 auto;
+}
+.about {
+  overflow: hidden scroll;
+}
+
+@media screen and (min-width: 1100px) {
+  .profile {
+    width: 55%;
+  }
+  .search {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  .fa_img_logo {
+    width: 25%;
+  }
+  .fa_logo {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .fa_img_logo {
+    width: 50%;
+  }
+  .fa_logo {
+    width: 87%;
+  }
+  .search {
+    height: 20rem;
+  }
+}

@@ -1,0 +1,149 @@
+/* body {
+    font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
+    background: #3AAFAB;
+    color: #fff;
+    padding: 50px 0;
+  }
+   */
+.container1 {
+  width: 80%;
+  max-width: 1200px;
+  margin: 15px auto;
+  font: normal 18px/1.5 "Fira Sans", "Helvetica Neue", sans-serif;
+  background: #29335c;
+  color: #fff;
+  padding: 15px;
+}
+
+.container1 h1 {
+  text-align: center;
+  margin: 10px;
+}
+
+.container * {
+  box-sizing: border-box;
+}
+
+.flexOuter,
+.flex-inner {
+  list-style-type: none;
+  padding: 0;
+}
+
+.flexOuter {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.flexOuter li,
+.flex-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flex-inner {
+  padding: 0 8px;
+  justify-content: space-between;
+}
+
+.flexOuter > li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.flexOuter li label,
+.flexOuter li p {
+  padding: 8px;
+  font-weight: 300;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.flexOuter > li > label,
+.flexOuter li p {
+  flex: 1 0 120px;
+  max-width: 220px;
+}
+
+.flexOuter > li > label + *,
+.flex-inner {
+  flex: 1 0 220px;
+}
+
+.flexOuter li p {
+  margin: 0;
+}
+
+.flexOuter li input:not([type="checkbox"]),
+.flexOuter li textarea,
+.flexOuter li select {
+  padding: 15px;
+  border: none;
+}
+
+.flexOuter li select {
+  border-radius: 12px;
+}
+
+.flexOuter li button {
+  margin-left: auto;
+  padding: 8px 16px;
+  border: none;
+  background: #3aafab;
+  color: #f2f2f2;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  border-radius: 2px;
+}
+
+.flex-inner li {
+  width: 100px;
+}
+
+.formSubmit {
+  margin: 10px;
+  margin-right: auto;
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.prev {
+  max-width: 25%;
+  max-height: 25%;
+  height: auto;
+  width: auto;
+}
