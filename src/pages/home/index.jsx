@@ -1,6 +1,6 @@
 
 import Cards from "../../components/common/Cards/Cards";
-import "./Home.module.css";
+import styles from "../../styles/Home.module.css";
 import Carouselz from "../../components/common/Carousel/Carousel";
 import Blog from "../../components/common/Blog/Blog";
 
@@ -17,6 +17,7 @@ const Home = () => {
     {
       name: "spiderman-tobey",
       url: "https://cdn.mos.cms.futurecdn.net/VvDTyFtJi7m5H6b2fhMzud-970-80.jpeg.webp",
+      
     },
     {
       name: "spiderman-together",
@@ -24,18 +25,18 @@ const Home = () => {
     },
   ];
   return (
-    <div className="row-home">
+    <div className={styles.rowHome}>
      
         <Carouselz></Carouselz>
-        <div className="high">
+        <div className={styles.high}>
           <h2>This Week's Highlights</h2>
         </div>
-        <div className="flex-container">
+        <div className={styles.flexContainer}>
           {items.map((item, index) => {
-            return <Cards key={index} imageUrl={item.url} title={item.name} />;
+            // return <Cards key={index} imageUrl={item.url} title={item.name} />;
           })}
         </div>
-        <div className="high2">
+        <div className={styles.high2}>
           <h2>Blogs</h2>
         </div>
         <Blog></Blog>

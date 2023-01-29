@@ -1,97 +1,97 @@
-
 import SearchBar from "../../components/common/search/Search";
-import styles from '@/styles/Clubs.module.css';
-import Image from 'next/image'
+import style from "@/styles/Clubs.module.css";
+import Image from "next/image";
 
 const Clubs = () => {
   return (
     <div>
-      <div className={styles.player-profile}>
-        <div className={styles.flex-container}>
-          
+      <div className={style.playerProfile}>
+        <div className={style.flexContainer}>
           <div style={{ width: "100%", height: "100%" }}>
-            <div className="card search">
-              <div className={styles.card-header}>
+            <div className={`${style.card} ${style.search}`}>
+              <div className={style.cardHeader} > 
                 <h2>Search Club</h2>
               </div>
-              
+              <div className={`${style.cardBody} ${style.searchBody}`}>
                 <SearchBar></SearchBar>
               </div>
             </div>
           </div>
-          <div style={{ width: "100%", height: "100%" }}>
-            <div className="card profile_logo">
-              <div className="card-header">
-                <Image
-                  className="profile_img_logo"
-                  src="https://logos-world.net/wp-content/uploads/2020/06/Manchester-United-logo.png"
-                  alt="Logo"
-                />
-                <h1>Manchester United</h1>
+        </div>
+        <div style={{ width: "100%", height: "100%" }}>
+          <div className={`${style.card} ${style.profile_logo}`}>
+            <div className={style.cardHeader}>
+              <Image
+                className={style.profile_img_logo}
+                src="https://logos-world.net/wp-content/uploads/2020/06/Manchester-United-logo.png"
+                width={1}
+                height={1}
+                alt="Logo"
+              />
+              <h1>Manchester United</h1>
+            </div>
+            <div className={style.cardBody}>
+              <div style={{ marginBottom: "0.5rem" }}>
+                <h4 style={{ paddingRight: "0.25rem" }}>Club ID: 321000001</h4>
               </div>
-              <div className="card-body">
-                <div style={{ marginBottom: "0.5rem" }}>
-                  <h4 style={{ paddingRight: "0.25rem" }}>
-                    Club ID: 321000001
-                  </h4>
-                </div>
-                <div style={{ marginBottom: "0" }}>
-                  <h4 style={{ paddingRight: "0.25rem" }}>
-                    League: Premier League
-                  </h4>
-                </div>
-                <div style={{ marginBottom: "0" }}>
-                  <h4 style={{ paddingRight: "0.25rem" }}>Country: England</h4>
-                </div>
+              <div style={{ marginBottom: "0" }}>
+                <h4 style={{ paddingRight: "0.25rem" }}>
+                  League: Premier League
+                </h4>
+              </div>
+              <div style={{ marginBottom: "0" }}>
+                <h4 style={{ paddingRight: "0.25rem" }}>Country: England</h4>
               </div>
             </div>
           </div>
-          
-          <div>
-            <div className="card details">
-              <div className="card-header">
-                <h3 style={{ marginBottom: "0" }}>General Information</h3>
-              </div>
-              <div className="card-body" style={{ paddingTop: "0.25rem" }}>
-                <table className="table table-bordered">
-                  <tbody>
-                    <tr>
-                      <th width="30%">Full Name</th>
-                      <td width="2%">:</td>
-                      <td>Manchester United</td>
-                    </tr>
-                    <tr>
-                      <th width="30%">Nation</th>
-                      <td width="2%">:</td>
-                      <td>England</td>
-                    </tr>
-                    <tr>
-                      <th width="30%">Founded</th>
-                      <td width="2%">:</td>
-                      <td>1902</td>
-                    </tr>
-                    <tr>
-                      <th width="30%">Ranking</th>
-                      <td width="2%">:</td>
-                      <td>10</td>
-                    </tr>
-                    <tr>
-                      <th width="30%">Confederation</th>
-                      <td width="2%">:</td>
-                      <td>UEFA</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+        </div>
 
-            <div>
-              <div className="card about" style={{ height: "388px" }}>
-                <div className="card-header" style={{ marginBottom: "1rem" }}>
-                  <h3>About</h3>
-                </div>
-                <div className="card-body" style={{ paddingRight: "0.25rem" }}>
-                  <p>{`
+        <div>
+          <div className={`${style.card} ${style.details}`}>
+            <div className={style.cardHeader}>
+              <h3 style={{ marginBottom: "0" }}>General Information</h3>
+            </div>
+            <div className={style.cardBody} style={{ paddingTop: "0.25rem" }}>
+              <table className="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th width="30%">Full Name</th>
+                    <td width="2%">:</td>
+                    <td>Manchester United</td>
+                  </tr>
+                  <tr>
+                    <th width="30%">Nation</th>
+                    <td width="2%">:</td>
+                    <td>England</td>
+                  </tr>
+                  <tr>
+                    <th width="30%">Founded</th>
+                    <td width="2%">:</td>
+                    <td>1902</td>
+                  </tr>
+                  <tr>
+                    <th width="30%">Ranking</th>
+                    <td width="2%">:</td>
+                    <td>10</td>
+                  </tr>
+                  <tr>
+                    <th width="30%">Confederation</th>
+                    <td width="2%">:</td>
+                    <td>UEFA</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div>
+            <div className={`${style.card} ${style.about}`} style={{ height: "388px" }}>
+              <div className={style.cardHeader} style={{ marginBottom: "1rem" }}>
+                <h3>About</h3>
+              </div>
+              <div className={style.cardBody} style={{ paddingRight: "0.25rem" }}>
+                <p>
+                  {`
                     Manchester United Football Club, commonly referred to as Man
                     United (often stylised as Man Utd), or simply United, is a
                     professional football club based in Old Trafford, Greater
@@ -134,13 +134,13 @@ const Clubs = () => {
                     the club's debt.[14] From 2012, some shares of the club were
                     listed on the New York Stock Exchange, although the Glazer
                     family retains overall ownership and control of the club.`}
-                  </p>
-                </div>
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
     // </div>
   );
 };
