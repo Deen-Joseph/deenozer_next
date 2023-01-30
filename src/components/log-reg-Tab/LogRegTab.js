@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./LogReg.module.css";
-import  Login  from './LoginPage';
-import  Register  from './RegisterPage';
+import  Login  from '../../pages/login';
+import  Register  from '../../pages/register';
 
 const LogRegPage = () => { 
 

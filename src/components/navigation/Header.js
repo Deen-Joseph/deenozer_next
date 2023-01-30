@@ -1,24 +1,23 @@
 import { useRef } from "react";
-import "../../styles/main.css";
-// import "./Header.css";
+import styles from  "../../styles/Header.module.css";
 
 const Header = () => {
   const navRef = useRef(); //Access DOM elements
 
   const showNav = () => {
-    navRef.current.classList.toggle("responsive_nav");
+    navRef.current.classList.toggle(`${styles.responsiveNav}`);
   };
 
   return (
-    <header>
-      <nav>
+    <header className={styles.header}>
+      <nav className={styles.nav}>
         <h3>
           <a href="/home">deenozer.com</a>
         </h3>
       </nav>
 
       {/* <Router> */}
-      <nav ref={navRef}>
+      <nav className={styles.nav} ref={navRef}>
         <a href="/home">Home</a>
         <a href="/players">Players</a>
         <a href="/clubs">Clubs</a>
@@ -26,12 +25,12 @@ const Header = () => {
         <a href="/events">Events</a>
         <a href="/database">Database</a>
         <a href="/login">Login/Register</a>
-        <button className="nav-btn nav-close-btn" onClick={showNav}>
+        <button className={`${styles.navBtn} ${styles.navCloseBtn}`} onClick={showNav}>
           Menu
         </button>
       </nav>
 
-      <button className="nav-btn" onClick={showNav}>
+      <button className={styles.navBtn} onClick={showNav}>
         Menu
       </button>
     </header>

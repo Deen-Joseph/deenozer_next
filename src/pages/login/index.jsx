@@ -1,6 +1,6 @@
 import { useState } from "react";
-import classes from "./Common.module.css";
-import "./LoginReg.module.css";
+import classes from "../../styles/Common.module.css";
+import styles from "../../styles/LoginReg.module.css";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import jwt_decode from 'jwt-decode';
@@ -13,7 +13,7 @@ const Login = (props) => {
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   const emailHandler = (event) => {
     setEmail(event.target.value);
@@ -76,10 +76,10 @@ const Login = (props) => {
       <div>
         <ToastContainer />
       </div>
-      <div className="log-app">
-        <div className="auth-form-container">
+      <div className={styles.logApp}>
+        <div className={styles.authFormContainer}>
           <h1>Login</h1>
-          <form className="login-form" onSubmit={submitHandler}>
+          <form className={styles.loginForm} onSubmit={submitHandler}>
             <div
               className={`${classes.control} ${
                 emailIsValid === false ? classes.invalid : ""
@@ -98,7 +98,7 @@ const Login = (props) => {
             </div>
 
             {emailIsValid === false && (
-              <p className="val-error">Please check the Email</p>
+              <p className={styles.valError}>Please check the Email</p>
             )}
 
             <div
@@ -124,7 +124,7 @@ const Login = (props) => {
             <div className={classes.actions}>
               <button
                 type="submit"
-                className={classes.btn}
+                className={styles.button}
                 disabled={!formIsValid}
               >
                 Login

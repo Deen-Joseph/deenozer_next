@@ -1,5 +1,5 @@
-.log-app,
-.reg-app {
+.logApp,
+.regApp {
   text-align: center;
   display: flex;
   min-height: 60vh;
@@ -8,16 +8,16 @@
   color: white;
 }
 
-.auth-form-container,
-.login-form,
-.register-form {
+.authFormContainer,
+.loginForm,
+.registerForm {
   display: flex;
   flex-direction: column;
   background-color: #29335c;
 }
 
 @media screen and (min-width: 600px) {
-  .auth-form-container {
+  .authFormContainer {
     padding: 5rem;
     border: 1px solid white;
     border-radius: 10px;
@@ -27,7 +27,7 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .auth-form-container {
+  .authFormContainer {
     /* padding:5rem;
       border: 1px solid white;
       border-radius: 10px; */
@@ -37,23 +37,23 @@
   }
 }
 
-.val-error {
+.valError {
   margin-bottom: 1.25rem;
 }
 
-label {
+.label {
   /* text-align: left; */
   padding-right: 1rem;
 }
 
-input {
+.input {
   margin: 0.5rem 0;
   padding: 1rem;
   border: none;
   border-radius: 10px;
 }
 
-button {
+.button {
   border: none;
   background-color: white;
   padding: 20px;
@@ -62,12 +62,12 @@ button {
   color: #7439db;
 }
 
-.link-btn {
+.linkBtn {
   background: none;
   color: white;
   text-decoration: underline;
 }
 
-.reg-submit {
+.regSubmit {
   margin-top: 2rem;
 }
