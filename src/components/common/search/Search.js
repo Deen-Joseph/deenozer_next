@@ -54,7 +54,8 @@ const SearchBar = () => {
           })
           .map((country, index) => {
             return (
-              <tbody key={index}>
+              <table key={index}>
+              <tbody >
                 <tr>
                   <td>
                     <button>
@@ -63,6 +64,7 @@ const SearchBar = () => {
                     </td>
                 </tr>
               </tbody>
+              </table>
             );
           })}
       </div>

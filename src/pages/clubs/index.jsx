@@ -8,7 +8,7 @@ const Clubs = () => {
       <div class="m-12">
         <div class="flex flex-wrap gap-10">
           <div
-            className={`w-1/6 soup flex-wrap rounded-lg shadow-lg ${style.soup}`}
+            className={`w-1/6 soup flex-wrap rounded-lg shadow-lg ${style.colorCont}`}
           >
             <div className={`${style.searchFont} text-2xl flex items-center justify-between leading-tight p-2 md:p-4`}>
             <p >Search Club</p>
@@ -82,7 +82,7 @@ const Clubs = () => {
                     </table>
                   </div>
 
-                  <div class="w-full lg:w-3/5 pl-2">
+                  <div class="w-full lg:w-3/5 pl-2 ">
                     <p class="text-lg font-bold mb-2">About</p>
                     <p class="text-md  text-justify text-md">
                       Manchester United Football Club, commonly referred to as
