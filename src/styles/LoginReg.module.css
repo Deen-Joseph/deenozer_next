@@ -55,11 +55,10 @@
 
 .button {
   border: none;
-  background-color: white;
+  background-color: #6675b1;
   padding: 20px;
   border-radius: 10px;
   cursor: pointer;
-  color: #7439db;
 }
 
 .linkBtn {

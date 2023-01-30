@@ -30,12 +30,11 @@ const Players = () => {
     <div class="m-12">
       <div class="flex flex-wrap gap-10">
         <div
-          className={`w-1/6 soup flex-wrap overflow-y-scroll rounded-lg shadow-lg ${style.soup}`}
+          className={`w-1/6 soup flex-wrap rounded-lg shadow-lg ${style.soup}`}
         >
-          <header class="flex items-center justify-between leading-tight p-2 md:p-4">
-            <h1 class="text-lg">Search Club</h1>
-          </header>
-
+          <div className={`${style.searchFont} text-2xl flex items-center justify-between leading-tight p-2 md:p-4`}>
+            <p >Search Players</p>
+          </div>
           <SearchBar></SearchBar>
         </div>
         <div

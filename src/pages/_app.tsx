@@ -7,7 +7,7 @@ import '@/styles/Footer.module.css';
 import '@/styles/Header.module.css';
 import '@/styles/LoginReg.module.css';
 import '@/styles/Common.module.css';
-import '@/styles/LogRegTab.module.css';
+import '@/styles/Search.module.css';
 import type { AppProps } from 'next/app'
 import Navigation from "../components/navigation/Navigation"
 

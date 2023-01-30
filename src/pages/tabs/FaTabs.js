@@ -87,7 +87,7 @@ const FaTabs = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.container1}>
-        <h1>Football Associations</h1>
+      <p className="text-3xl font-bold italic pb-4">Football Associations</p>
         <ul className={styles.flexOuter}>
           <li>
             <label htmlFor="fa-name">FA Name</label>

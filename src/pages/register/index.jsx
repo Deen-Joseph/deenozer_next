@@ -1,6 +1,8 @@
-import  { useState, useEffect } from "react";
-import "./LoginReg.module.css";
+import { useState, useEffect } from "react";
+import styles from "../../styles/LoginReg.module.css";
+import classes from "../../styles/Common.module.css";
 import axios from "axios";
+import Link from 'next/link';
 import { ToastContainer, toast } from "react-toastify";
 
 const Register = (props) => {
@@ -66,61 +68,67 @@ const Register = (props) => {
       <div>
         <ToastContainer />
       </div>
-      <div className="reg-app">
-        <div className="auth-form-container">
-          <h1>Register</h1>
-          <form className="register-form" onSubmit={submitHandler}>
-            <label htmlFor="name">Full Name</label>
-            <input
-              type="text"
-              placeholder="Enter your name"
-              id="name"
-              name="name"
-              onChange={nameHandler}
-              value={enteredName}
-            />
+      <div className={styles.regApp}>
+        <div className={styles.authFormContainer}>
+        <div className="text-3xl font-bold italic">Register</div>
+          <form className={styles.registerForm} onSubmit={submitHandler}>
+            <label htmlFor="name" className="font-bold mt-4">Full Name</label>
+            <div className={classes.control}>
+              <input
+                type="text"
+                placeholder="Enter your name"
+                id="name"
+                name="name"
+                onChange={nameHandler}
+                value={enteredName}
+              />
+            </div>
 
-            <label htmlFor="username">User Name</label>
-            <input
-              type="text"
-              placeholder="User name"
-              id="username"
-              name="username"
-              onChange={UserNameHandler}
-              value={enteredUserName}
-            />
-
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              id="email"
-              name="email"
-              onChange={emailHandler}
-              value={enteredEmail}
-            />
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              placeholder="Enter 8 digit password"
-              id="password"
-              name="password"
-              onChange={passwordHandler}
-              value={enteredPassword}
-            />
-            <button className="reg-submit" type="submit">
-              Register
-            </button>
+            <label htmlFor="username" className="font-bold mt-1">User Name</label>
+            <div className={classes.control}>
+              <input
+                type="text"
+                placeholder="User name"
+                id="username"
+                name="username"
+                onChange={UserNameHandler}
+                value={enteredUserName}
+              />
+            </div>
+            <label htmlFor="email" className="font-bold mt-1">Email</label>
+            <div className={classes.control}>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                id="email"
+                name="email"
+                onChange={emailHandler}
+                value={enteredEmail}
+              />
+            </div>
+            <label htmlFor="password" className="font-bold mt-1">Password</label>
+            <div className={classes.control}>
+              <input
+                type="password"
+                placeholder="Enter 8 digit password"
+                id="password"
+                name="password"
+                onChange={passwordHandler}
+                value={enteredPassword}
+              />
+            </div>
+            <div className={classes.actions}>
+              <button
+                className={`${styles.button} ${styles.regSubmit}`}
+                type="submit"
+              >
+                Register
+              </button>
+            </div>
           </form>
-          {/* <div>
-            <button
-              className="link-btn"
-              onClick={() => props.onToggle("login")}
-            >
-              {" "}
-              Already Have Account? Login Here.
-            </button>
-          </div> */}
+          <div className="mt-4 hover:text-red-800">
+           <Link href="/login">Already Have Account? Login Here.</Link> 
+          </div>
         </div>
       </div>
     </>

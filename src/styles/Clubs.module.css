@@ -69,7 +69,15 @@
 .about {
   color: white;
   background-color:#29335c ;
+  border-radius: 10px;
 }
+.soup {
+  background-color:#29335c ;
+}
+.searchFont{
+  color: white;
+}
+
 @media screen and (max-width: 1350px) {
   .soup {
     width: 95%;

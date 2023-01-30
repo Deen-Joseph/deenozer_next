@@ -46,7 +46,7 @@ const EventsTab = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.container1}>
-        <h1>Events</h1>
+      <p className="text-3xl font-bold italic pb-4">Events</p>
         <ul className={styles.flexOuter}>
           <li>
             <label htmlFor="event-name">Event Name</label>
