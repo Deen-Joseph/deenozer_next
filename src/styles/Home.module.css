@@ -1,26 +1,13 @@
 
-.rowHome{
-  /* display: flex; */
-  /* justify-content: space-between; */
-  margin:1% 10% 10% ;
+.home{
+
+  background-color: #e7ebfc;
+  background-image: url('https://r4.wallpaperflare.com/wallpaper/179/186/450/manchester-united-vs-chelsea-wallpaper-c51f2dbf534275be0dbfcebcc85781fb.jpg');
+  background-repeat:initial;
+  background-size:contain;
+  background-position-y: -100%
 }
 
-.flexContainer {
-  display: flex;
-  flex-direction: row;
-  font-size: 15px;
-  text-align: center;
-  justify-content: space-between;
-}
-
-.high{
-  height: 0px;
-}
-.high2{
-  margin-top: 35px;
-  }
-@media (max-width: 1350px) {
-  .flexContainer {
-    flex-direction: column;
-  }
+.homeContainer{
+  height: 30rem;
 }

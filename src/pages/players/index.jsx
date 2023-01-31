@@ -44,7 +44,7 @@ const Players = () => {
             class="bg-cover bg-bottom  w-full md:w-1/4 h-70"
             style={{
               backgroundImage:
-                " url('https://www.realmadrid.com/img/vertical_380px/cristiano_550x650.jpg')",
+                " url('https://media.bleacherreport.com/w_800,h_533,c_fill/br-img-images/002/411/828/ScreenShot2013-07-23at9.25.57AM_crop_north.jpg')",
             }}
           >
             <div class="absolute text-xl">
