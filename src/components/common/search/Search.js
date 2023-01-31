@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import styles from "../../../styles/Search.module.css";
 
-const SearchBar = ({ bata }) => {
+const SearchBar = ({setStateId,bata}) => {
 
   const [searchInput, setSearchInput] = useState("");
-
   // const countries = [
   //   { name: "Belgium", continent: "Europe" },
   //   { name: "India", continent: "Asia" },
@@ -32,8 +31,9 @@ const SearchBar = ({ bata }) => {
   //   { name: "Pakistan", continent: "Asia" },
   // ];
 
-  const playerId = (id) => {
-    console.log("id",id);
+  const playerId = (stateId) => {
+    console.log("id",stateId);
+    setStateId(stateId);
   };
 
   return (
@@ -59,14 +59,14 @@ const SearchBar = ({ bata }) => {
               return data;
           })
           .map((data, index) => {
-            const id = data.id
+            const stateId = data.id
             data = data.first_name + " " + " " + data.last_name;
             return (
               <table key={index}>
                 <tbody>
                   <tr>
                     <td>
-                      <button onClick={() =>{playerId(id)}}>{data}</button>
+                      <button onClick={() =>{playerId(stateId)}}>{data}</button>
                     </td>
                   </tr>
                 </tbody>
