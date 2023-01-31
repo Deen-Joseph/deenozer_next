@@ -3,6 +3,41 @@ import style from "../../styles/FA.module.css";
 import Image from "next/image";
 
 const FA = () => {
+  let url = "";
+  const [data, setData] = useState("");
+  const [bata, setBata] = useState([]);
+  const [stateId, setStateId] = useState();
+
+  const getOneData = () => {    
+      url = `http://localhost:3001/fa/${stateId}`;
+    axios
+      .get(url)
+      .then((response) => {   
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const getAllData = () => {
+   url = `http://localhost:3001/fa`;
+    axios
+      .get(url)
+      .then((response) => {
+        setBata(response.data);
+        setData(response.data[0]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    getAllData();
+    getOneData()
+  }, [stateId]);
+
   return (
     <div>
       <div class="m-12">
@@ -13,7 +48,7 @@ const FA = () => {
             <div className={`${style.searchFont} text-2xl flex items-center justify-between leading-tight p-2 md:p-4`}>
             <p >Search Football Associations</p>
           </div>
-            <SearchBar></SearchBar>
+            <SearchBar bata={bata} setStateId={setStateId} ></SearchBar>
           </div>
           <div
             class={`w-4/5 flex flex-wrap  ${style.soup} ${style.aboutContainer}`}

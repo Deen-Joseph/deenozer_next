@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./ClubsTab.module.css";
-import Image from 'next/image'
-
+import Image from "next/image";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 const imageMimeType = /image\/(png|jpg|jpeg)/i;
 
@@ -41,17 +42,36 @@ const ClubTab = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
+
+  const onSubmit = (formData) => {
+    if (formData.attachFile) formData.attachFile = formData.attachFile[0];
+    console.log(formData.attachFile);
+    axios
+      .post(
+        "http://localhost:3001/clubs",
+        formData
+        // {
+        //   headers: {
+        //   "Content-Type": "multipart/form-data",
+        // }
+        // }
+      )
+      .then((response) => {
+        console.log(response.data);
+        toast.success(`Data ${response.statusText} Successfully`, toastConfig);
+      })
+      .catch((error) => {
+        toast.error(error.response.data.message, toastConfig);
+      });
+
     reset();
   };
 
   const [file, setFile] = useState(null);
   const [fileDataURL, setFileDataURL] = useState(null);
-  const logoImage = register('logo')
+  const logoImage = register("logo");
 
   const changeHandler = (e) => {
-   
     const file = e.target.files[0];
     if (!file.type.match(imageMimeType)) {
       alert("Image mime type is not valid");
@@ -93,7 +113,7 @@ const ClubTab = () => {
             <input
               type="text"
               id="club-name"
-              {...register("club-name")}
+              {...register("club_name")}
               placeholder="Enter Club name"
             ></input>
           </li>
@@ -103,7 +123,7 @@ const ClubTab = () => {
               type="text"
               id="nation"
               placeholder="Enter Club Nationality"
-              {...register("nation")}
+              {...register("nationality")}
             ></input>
           </li>
           <li>
@@ -111,7 +131,7 @@ const ClubTab = () => {
             <input
               type="text"
               id="league-name"
-              {...register("league-name")}
+              {...register("league_name")}
               // , { required: true }
               placeholder="Enter League name here"
             ></input>
@@ -144,27 +164,26 @@ const ClubTab = () => {
             ></input>
           </li>
           <li>
+            <label htmlFor="ranking">FIFA Ranking</label>
+            <input
+              type="number"
+              id="ranking"
+              placeholder="Enter FIFA Ranking"
+              {...register("ranking")}
+            ></input>
+          </li>
+          <li>
             <label htmlFor="about">About</label>
             <textarea
               rows="6"
               id="about"
               placeholder="Enter about Club"
-              {...register("about-club")}
+              {...register("about")}
             ></textarea>
-          </li>
-
-          <li>
-            <label htmlFor="ranking">Ranking</label>
-            <input
-              type="number"
-              id="ranking"
-              placeholder="Enter Club Ranking"
-              {...register("ranking")}
-            ></input>
           </li>
           <li>
             <label htmlFor="logo">Club Logo</label>
-           
+
             <input
               type="file"
               id="logo"
@@ -172,14 +191,22 @@ const ClubTab = () => {
               {...logoImage}
               onChange={changeHandler}
               placeholder="Upload Club Logo"
-              
             ></input>
           </li>
           <li>
             <label htmlFor="preview">Preview</label>
-            {fileDataURL ? (
-              styles.prev && <Image alt="" id="preview" className={styles.prev} src={fileDataURL} width="1" height="1" ></Image>
-            ) : null}
+            {fileDataURL
+              ? styles.prev && (
+                  <Image
+                    alt=""
+                    id="preview"
+                    className={styles.prev}
+                    src={fileDataURL}
+                    width="1"
+                    height="1"
+                  ></Image>
+                )
+              : null}
           </li>
 
           <li>
