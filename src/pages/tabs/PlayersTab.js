@@ -119,7 +119,7 @@ const PlayersTab = () => {
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.container1}>
-          <h1>Players</h1>
+        <p className="text-3xl font-bold italic pb-4">Players</p>
           <ul className={styles.flexOuter}>
             <li>
               <label htmlFor="first_name">First Name</label>

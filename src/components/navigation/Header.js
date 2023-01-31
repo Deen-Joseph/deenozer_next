@@ -1,37 +1,37 @@
 import { useRef } from "react";
-import "../../styles/main.css";
-// import "./Header.css";
+import styles from  "../../styles/Header.module.css";
+import Link from 'next/link';
 
 const Header = () => {
   const navRef = useRef(); //Access DOM elements
 
   const showNav = () => {
-    navRef.current.classList.toggle("responsive_nav");
+    navRef.current.classList.toggle(`${styles.responsiveNav}`);
   };
 
   return (
-    <header>
-      <nav>
+    <header className={styles.header}>
+      <nav className={`${styles.nav} italic text-3xl`} >
         <h3>
-          <a href="/home">deenozer.com</a>
+          <Link href="/home">deenozer.com</Link>
         </h3>
       </nav>
 
       {/* <Router> */}
-      <nav ref={navRef}>
-        <a href="/home">Home</a>
-        <a href="/players">Players</a>
-        <a href="/clubs">Clubs</a>
-        <a href="/fa">FA</a>
-        <a href="/events">Events</a>
-        <a href="/database">Database</a>
-        <a href="/login">Login/Register</a>
-        <button className="nav-btn nav-close-btn" onClick={showNav}>
+      <nav className={styles.nav} ref={navRef}>
+        <Link className="text-lg" href="/home">Home</Link>
+        <Link className="text-lg" href="/players">Players</Link>
+        <Link className="text-lg" href="/clubs">Clubs</Link>
+        <Link className="text-lg" href="/fa">FA</Link>
+        <Link className="text-lg" href="/events">Events</Link>
+        <Link className="text-lg" href="/database">Database</Link>
+        <Link className="text-lg" href="/login">Login/Register</Link>
+        <button className={`${styles.navBtn} ${styles.navCloseBtn}`} onClick={showNav}>
           Menu
         </button>
       </nav>
 
-      <button className="nav-btn" onClick={showNav}>
+      <button className={styles.navBtn} onClick={showNav}>
         Menu
       </button>
     </header>

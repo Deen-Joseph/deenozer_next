@@ -1,13 +1,12 @@
-import "./Footer.module.css";
+import styles from "../../styles//Footer.module.css";
 import Link from "next/link";
 const Footer = () => {
   return (
-    <footer className="site-footer">
-      <div className="container">
-        <div className="row">
-          <div className="f">
+    <footer className={styles.siteFooter}>
+      <div className={styles.container}>
+       
             <h6>Quick Links</h6>
-            <ul className="footer-links">
+            <ul className={styles.footerLinks}>
               <li>
                 <Link href="http://scanfcode.com/about/">About Us</Link>
               </li>
@@ -28,20 +27,17 @@ const Footer = () => {
                 <Link href="http://scanfcode.com/sitemap/">Sitemap</Link>
               </li>
             </ul>
-          </div>
-        </div>
+         
         <hr />
       </div>
-      <div className="container">
-        <div className="row">
-          <div className="">
-            <p className="copyright-text">
+      <div className={styles.container}>
+        
+            <p className={styles.copyrightText}>
               Copyright &copy; 2017 All Rights Reserved by
               <Link href="/">Deenozer</Link>.
             </p>
           </div>
-        </div>
-      </div>
+       
     </footer>
   );
 };

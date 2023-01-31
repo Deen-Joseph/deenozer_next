@@ -1,8 +1,8 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import "./Players.module.css";
+import style from "../../styles/Players.module.css";
 import SearchBar from "../../components/common/search/Search";
-import Image from 'next/image'
+import Image from "next/image";
 
 const Players = () => {
   const [data, setData] = useState("");
@@ -18,102 +18,103 @@ const Players = () => {
       });
   };
   useEffect(() => {
-    getAllData();    
+    getAllData();
   }, []);
 
   return (
+
+
+
+
     <div>
-      <div className="player-profile scroll">
-        <div className="flex-container">
-          <div style={{ width: "100%", height: "100%" }}>
-            <div className="card search">
-              <div className="card-header">
-                <h2>Search Player</h2>
-              </div>
-              <div className="card-body search-body">
-                <SearchBar></SearchBar>
-              </div>
+    <div class="m-12">
+      <div class="flex flex-wrap gap-10">
+        <div
+          className={`w-1/6 soup flex-wrap rounded-lg shadow-lg ${style.colorCont} `}
+        >
+          <div className={`${style.searchFont} text-2xl flex items-center justify-between leading-tight p-2 md:p-4`}>
+            <p >Search Players</p>
+          </div>
+          <SearchBar></SearchBar>
+        </div>
+        <div
+          class={`w-4/5 flex flex-wrap  ${style.soup} ${style.aboutContainer}`}
+        >
+          <div
+            class="bg-cover bg-bottom  w-full md:w-1/4 h-70"
+            style={{
+              backgroundImage:
+                " url('https://media.bleacherreport.com/w_800,h_533,c_fill/br-img-images/002/411/828/ScreenShot2013-07-23at9.25.57AM_crop_north.jpg')",
+            }}
+          >
+            <div class="absolute text-xl">
+              <i class="fa fa-heart text-white hover:text-red-light ml-4 mt-4 cursor-pointer"></i>
             </div>
           </div>
-          <div style={{ width: "100%", height: "100%" }}>
-            <div className="card profile">
-              <div className="card-header">
-                <Image
-                  className="profile_img"
-                  src="https://www.realmadrid.com/img/vertical_380px/cristiano_550x650.jpg"
-                  alt="Player"
-                />
 
-                <h1>
-                  <p key={data.id}>
-                    {data.first_name} {data.last_name}
+          <div class={`w-full md:w-2/3 ${style.aboutContainer}`}>
+            <div class="h-full mx-auto px-6 md:px-0 md:pt-6 md:pb-6 md:-ml-6 relative">
+              <div
+                class={`bg-white lg:h-full p-6 -mt-6 md:mt-0 relative mb-4 md:mb-0 flex flex-wrap md:flex-wrap items-center ${style.about}`}
+              >
+                <div class="w-full lg:w-1/4 lg:border-right lg:border-solid text-center md:text-left ml-6 mb-2 mr-6 pr-2">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <th>Full Name</th>
+                        <td>:</td>
+                        <td>{data.first_name} {data.last_name}</td>
+                      </tr>
+                      <tr>
+                        <th>Player ID</th>
+                        <td>:</td>
+                        <td>320000</td>
+                      </tr>
+                      <tr>
+                      <th>Position</th>
+                      <td>:</td>
+                      <td>{data.position}</td>
+                    </tr>
+                    <tr>
+                    <th>Club</th>
+                    <td>:</td>
+                    <td>{data.club}</td>
+                  </tr>
+                      <tr>
+                        <th>Nationality</th>
+                        <td>:</td>
+                        <td>{data.nationality}</td>
+                      </tr>
+                      <tr>
+                        <th>Gender</th>
+                        <td>:</td>
+                        <td>{data.gender}</td>
+                      </tr>
+                      <tr>
+                        <th>Current Club</th>
+                        <td>:</td>
+                        <td>{data.club}</td>
+                      </tr>
+                      <tr>
+                        <th>Ranking</th>
+                        <td>:</td>
+                        <td>5</td>
+                      </tr>
+                      <tr>
+                        <th>Date of Birth</th>
+                        <td >:</td>
+                        <td> {data.dob}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="w-full lg:w-3/5 pl-4">
+                  <p class="text-lg font-bold mb-2">About</p>
+                  <p class="text-md  text-justify text-md">
+                  {data.about}
                   </p>
-                </h1>
-              </div>
-              <div className="card-body">
-                <div style={{ marginBottom: "0.5rem" }}>
-                  <h4 style={{ paddingRight: "0.25rem" }}>
-                    Player ID: {data.id}
-                  </h4>
-                </div>
-                <div style={{ marginBottom: "0" }}>
-                  <h4 style={{ paddingRight: "0.25rem" }}>Club: {data.club}</h4>
-                </div>
-                <div style={{ marginBottom: "0" }}>
-                  <h4 style={{ paddingRight: "0.25rem" }}>
-                    Position: {data.position}
-                  </h4>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="card details">
-              <div className="card-header">
-                <h3 style={{ marginBottom: "0" }}>General Information</h3>
-              </div>
-              <div className="card-body" style={{ paddingTop: "0.25rem" }}>
-                <table className="table table-bordered">
-                  <tbody>
-                    <tr>
-                      <th width="30%">Full Name</th>
-                      <td width="2%">:</td>
-                      <td>
-                        {data.first_name} {data.last_name}
-                      </td>
-                    </tr>
-                    <tr>
-                      <th width="30%">Nationality </th>
-                      <td width="2%">:</td>
-                      <td>{data.nationality}</td>
-                    </tr>
-                    <tr>
-                      <th width="30%">Gender</th>
-                      <td width="2%">:</td>
-                      <td>{data.gender}</td>
-                    </tr>
-                    <tr>
-                      <th width="30%">Current Club</th>
-                      <td width="2%">:</td>
-                      <td>{data.club}</td>
-                    </tr>
-                    <tr>
-                      <th width="30%">Date of Birth</th>
-                      <td width="2%">:</td>
-                      <td>{data.dob?.split("T")[0]}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <div>
-              <div className="card" style={{ height: "388px" }}>
-                <div className="card-header" style={{ marginBottom: "1rem" }}>
-                  <h3>About</h3>
-                </div>
-                <div className="card-body" style={{ paddingRight: "0.25rem" }}>
-                  <p>{data.about}</p>
                 </div>
               </div>
             </div>
@@ -121,6 +122,7 @@ const Players = () => {
         </div>
       </div>
     </div>
+  </div>
   );
 };
 

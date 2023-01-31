@@ -86,7 +86,7 @@ const ClubTab = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.container1}>
-        <h1>Clubs</h1>
+        <p className="text-3xl font-bold italic pb-4">Clubs</p>
         <ul className={styles.flexOuter}>
           <li>
             <label htmlFor="club-name">Club Name</label>

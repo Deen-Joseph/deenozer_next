@@ -13,9 +13,10 @@
   background: #29335c;
   color: #fff;
   padding: 15px;
+  border-radius: 10px;
 }
 
-.container1 h1 {
+.container1 p {
   text-align: center;
   margin: 10px;
 }

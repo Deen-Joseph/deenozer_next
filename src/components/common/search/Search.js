@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "../../../styles/Search.module.css";
 
 const SearchBar = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -31,42 +32,42 @@ const SearchBar = () => {
   ];
 
   return (
-    <div>
+    <div className={styles.soup}>
       <input
-      style={{marginBottom:"2.5rem"}}
+        className={`${styles.search} bg-white rounded-md m-2 py-2 pl-3  focus:outline-none sm:text-sm`}
         type="search"
-        placeholder="Search Player"
+        placeholder="Search"
         onChange={(event) => setSearchInput(event.target.value)}
       />
-      <table >
-        <tbody >
-          <tr>
-            <th >
-              <h2 style={{paddingBottom:"0.5rem"}}>Country</h2>
-            </th>
-          </tr>
-        </tbody>
-
+      <div className="grid h-screen place-items-center overflow-y-scroll">
+        {/* <div className="text-3xl mb-4 font-bold"> 
+          <p>Country</p>
+        </div> */}
         {countries
           .filter((country) => {
             if (searchInput === "") {
               return country;
             } else if (
               country.name.toLowerCase().includes(searchInput.toLowerCase())
-            ) {
+            )
               return country;
-            }
           })
           .map((country, index) => {
             return (
-              <tbody key={index}>
+              <table key={index}>
+              <tbody >
                 <tr>
-                  <td>{country.name}</td>
+                  <td>
+                    <button>
+                    {country.name}
+                    </button>
+                    </td>
                 </tr>
               </tbody>
+              </table>
             );
           })}
-      </table>
+      </div>
     </div>
   );
 };

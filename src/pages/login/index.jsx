@@ -1,10 +1,11 @@
 import { useState } from "react";
-import classes from "./Common.module.css";
-import "./LoginReg.module.css";
+import classes from "../../styles/Common.module.css";
+import styles from "../../styles/LoginReg.module.css";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import jwt_decode from 'jwt-decode';
-import { useNavigate  } from "react-router-dom";
+import Link from 'next/link';
+// import { useNavigate  } from "react-router-dom";
 
 const Login = (props) => {
   const [enteredEmail, setEmail] = useState("");
@@ -13,7 +14,7 @@ const Login = (props) => {
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   const emailHandler = (event) => {
     setEmail(event.target.value);
@@ -76,16 +77,17 @@ const Login = (props) => {
       <div>
         <ToastContainer />
       </div>
-      <div className="log-app">
-        <div className="auth-form-container">
-          <h1>Login</h1>
-          <form className="login-form" onSubmit={submitHandler}>
+      <div className={styles.logApp}>
+        <div className={styles.authFormContainer}>
+          <div className="text-3xl font-bold italic">Login</div>
+          <form className={styles.loginForm} onSubmit={submitHandler}>
+          <label htmlFor="email" className="font-bold mt-4">Email</label>
             <div
               className={`${classes.control} ${
                 emailIsValid === false ? classes.invalid : ""
               }`}
             >
-              <label htmlFor="email">Email</label>
+              
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -98,15 +100,16 @@ const Login = (props) => {
             </div>
 
             {emailIsValid === false && (
-              <p className="val-error">Please check the Email</p>
+              <p className={styles.valError}>Please check the Email</p>
             )}
 
+<label htmlFor="password" className="font-bold mt-1">Password</label>
             <div
               className={`${classes.control} ${
                 passwordIsValid === false ? classes.invalid : ""
               }`}
             >
-              <label htmlFor="password">Password</label>
+              
               <input
                 type="password"
                 placeholder="********"
@@ -124,21 +127,16 @@ const Login = (props) => {
             <div className={classes.actions}>
               <button
                 type="submit"
-                className={classes.btn}
+                className={styles.button}
                 disabled={!formIsValid}
               >
                 Login
               </button>
             </div>
           </form>
-          {/* <div>
-            <button
-              className="link-btn"
-              onClick={() => props.onToggle("register")}
-            >
-              Don't Have Account? Register Here.
-            </button>
-          </div> */}
+          <div className="mt-4 hover:text-red-800">
+           <Link href="/register">New to here? Register Here.</Link> 
+          </div>
         </div>
       </div>
     </>
