@@ -15,7 +15,7 @@ const Players = () => {
     axios
       .get(url)
       .then((response) => {   
-        setBata(response.data);
+        setData(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -27,8 +27,8 @@ const Players = () => {
     axios
       .get(url)
       .then((response) => {
-          setData(response.data[0]);
-        console.log(url);
+        setBata(response.data);
+        setData(response.data[0]);
       })
       .catch((error) => {
         console.log(error);
