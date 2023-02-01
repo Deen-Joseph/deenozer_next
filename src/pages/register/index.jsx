@@ -4,6 +4,7 @@ import classes from "../../styles/Common.module.css";
 import axios from "axios";
 import Link from 'next/link';
 import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = (props) => {
   const [enteredName, setName] = useState("");
@@ -57,9 +58,9 @@ const Register = (props) => {
       })
       .catch((error) => {
         console.log(error);
-        if (error.response.status === 400) {
+        if (error.response?.status === 400) {
           toast.error("User Already Exist!", toastConfig);
-        } else toast.error(error.response.data.message, toastConfig);
+        } else toast.error(error.response?.data.message, toastConfig);
       });
   };
 

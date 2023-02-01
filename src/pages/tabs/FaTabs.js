@@ -4,6 +4,7 @@ import styles from "./FaTabs.module.css";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import Image from 'next/image'
+import 'react-toastify/dist/ReactToastify.css';
 
 const imageMimeType = /image\/(png|jpg|jpeg)/i;
 
@@ -125,6 +126,7 @@ const FaTabs = () => {
             <li>
               <label htmlFor="fa-name">FA Name</label>
               <input
+              className="text-black"
                 type="text"
                 id="fa-name"
                 {...register("fa_name")}
@@ -134,6 +136,7 @@ const FaTabs = () => {
             <li>
               <label htmlFor="nation">Nation</label>
               <input
+              className="text-black"
                 type="text"
                 id="nation"
                 placeholder="Enter Nation"
@@ -143,6 +146,7 @@ const FaTabs = () => {
             <li>
               <label htmlFor="conf">Confederation</label>
               <select
+              className="text-black"
                 id="conf"
                 placeholder="Select FA Confederation"
                 {...register("confederation")}
@@ -159,6 +163,7 @@ const FaTabs = () => {
             <li>
               <label htmlFor="dof">Date of foundation</label>
               <input
+              className="text-black"
                 type="date"
                 id="dof"
                 placeholder="Enter Date of foundation here"
@@ -168,6 +173,7 @@ const FaTabs = () => {
             <li>
               <label htmlFor="about">About</label>
               <textarea
+              className="text-black"
                 rows="6"
                 id="about"
                 placeholder="Enter about FA "
@@ -178,6 +184,7 @@ const FaTabs = () => {
             <li>
               <label htmlFor="ranking">FIFA Ranking</label>
               <input
+              className="text-black"
                 type="number"
                 id="ranking"
                 placeholder="Enter FIFA Ranking"
@@ -188,6 +195,7 @@ const FaTabs = () => {
               <label htmlFor="logo">FA Logo</label>
 
               <input
+              className="text-black"
                 type="file"
                 id="logo"
                 accept=".png, .jpg, .jpeg"

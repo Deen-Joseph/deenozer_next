@@ -37,7 +37,9 @@ const Players = () => {
 
   useEffect(() => {
     getAllData();
-    getOneData()
+    if(stateId){
+      getOneData()
+    }
   }, [stateId]);
 
   return (

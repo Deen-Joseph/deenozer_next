@@ -3,9 +3,11 @@ import classes from "../../styles/Common.module.css";
 import styles from "../../styles/LoginReg.module.css";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import jwt_decode from 'jwt-decode';
 import Link from 'next/link';
-// import { useNavigate  } from "react-router-dom";
+import { useRouter } from 'next/router';
+
 
 const Login = (props) => {
   const [enteredEmail, setEmail] = useState("");
@@ -14,7 +16,7 @@ const Login = (props) => {
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
-  // const navigate = useNavigate()
+  const router = useRouter();
 
   const emailHandler = (event) => {
     setEmail(event.target.value);
@@ -56,19 +58,20 @@ const Login = (props) => {
       email: enteredEmail,
       password: enteredPassword,
     };
+    console.log(loginData)
     axios
       .post("http://localhost:3001/auth/login", loginData)
       .then((response) => {
         const decoded = jwt_decode(response.data.access_token);
         toast.success(`Login Success! Welcome ${decoded.name} `, toastConfig);
         localStorage.setItem("access_token", response.data.access_token);
-        if(response.data.access_token) navigate("/home");       
+        if(response.data.access_token) router.push('/home')
       })
       .catch((error) => {
         console.log(error);
-        if (error.response.status === 401) {
+        if (error.response?.status === 401) {
           toast.error("Invalid Credentials, Unauthorized", toastConfig);
-        } else toast.error(error.response.data.message, toastConfig);
+        } else toast.error(error.response?.data.message, toastConfig);
       });
   };
 

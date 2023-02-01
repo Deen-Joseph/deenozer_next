@@ -5,8 +5,8 @@ const Navigation =({children})=> {
     return(
         <>
         <Header></Header>
-        <main>{children}</main>
-        <Footer></Footer>
+        <main className="flex flex-col min-h-screen" >{children}</main>
+        <Footer className="mt-auto"></Footer>
         </>
     )
 
