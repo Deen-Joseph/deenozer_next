@@ -4,6 +4,7 @@ import styles from "./PlayersTab.module.css";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import Image from 'next/image'
+import 'react-toastify/dist/ReactToastify.css';
 
 const imageMimeType = /image\/(png|jpg|jpeg)/i;
 
@@ -123,7 +124,7 @@ const PlayersTab = () => {
           <ul className={styles.flexOuter}>
             <li>
               <label htmlFor="first_name">First Name</label>
-              <input
+              <input className="text-black"
                 type="text"
                 id="first_name"
                 {...register("first_name")}
@@ -133,6 +134,7 @@ const PlayersTab = () => {
             <li>
               <label htmlFor="last_name">Last Name</label>
               <input
+              className="text-black"
                 type="text"
                 id="last_name"
                 {...register("last_name")}
@@ -143,6 +145,7 @@ const PlayersTab = () => {
             <li>
               <label htmlFor="nation">Nationality</label>
               <input
+              className="text-black"
                 type="text"
                 id="nation"
                 placeholder="Enter Nationality here"
@@ -152,6 +155,7 @@ const PlayersTab = () => {
             <li>
               <label htmlFor="gender">Gender</label>
               <select
+              className="text-black"
                 id="gender"
                 placeholder="Select Gender"
                 {...register("gender")}
@@ -165,7 +169,7 @@ const PlayersTab = () => {
             <li></li>
             <li>
               <label htmlFor="club">Club</label>
-              <select id="club" placeholder="Select club" {...register("club")}>
+              <select id="club" className="text-black" placeholder="Select club" {...register("club")}>
                 {clubs.map((item, index) => {
                   return (
                    <>
@@ -180,6 +184,7 @@ const PlayersTab = () => {
             <li>
               <label htmlFor="dob">Date of birth</label>
               <input
+              className="text-black"
                 type="date"
                 id="dob"
                 placeholder="Enter Date of Birth here"
@@ -189,6 +194,7 @@ const PlayersTab = () => {
             <li>
               <label htmlFor="ran">Ranking</label>
               <input
+              className="text-black"
                 type="ran"
                 id="ran"
                 placeholder="Enter Ranking"
@@ -198,6 +204,7 @@ const PlayersTab = () => {
             <li>
               <label htmlFor="about">About</label>
               <textarea
+              className="text-black"
                 rows="6"
                 id="about"
                 placeholder="Enter Enter about Player"
@@ -209,6 +216,7 @@ const PlayersTab = () => {
               <label htmlFor="position">Position</label>
               <select
                 id="position"
+                className="text-black"
                 placeholder="Select Position"
                 {...register("position")}
               >
@@ -238,6 +246,7 @@ const PlayersTab = () => {
               <label htmlFor="attachFile">Player Image</label>
 
               <input
+              className="text-black"
                 type="file"
                 id="attachFile"
                 accept=".png, .jpg, .jpeg"

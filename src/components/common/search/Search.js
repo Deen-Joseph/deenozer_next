@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import styles from "../../../styles/Search.module.css";
 
-const SearchBar = ({ bata }) => {
-
+const SearchBar = ({ setStateId, bata }) => {
   const [searchInput, setSearchInput] = useState("");
-
   // const countries = [
   //   { name: "Belgium", continent: "Europe" },
   //   { name: "India", continent: "Asia" },
@@ -32,8 +30,8 @@ const SearchBar = ({ bata }) => {
   //   { name: "Pakistan", continent: "Asia" },
   // ];
 
-  const playerId = (id) => {
-    console.log("id",id);
+  const playerId = (stateId) => {
+    setStateId(stateId);
   };
 
   return (
@@ -44,33 +42,47 @@ const SearchBar = ({ bata }) => {
         placeholder="Search"
         onChange={(event) => setSearchInput(event.target.value)}
       />
-      <div className="grid h-screen place-items-center overflow-y-scroll">
-       
+      <div className="grid h-screen pl-2 overflow-y-scroll">
         {bata
           .filter((data) => {
             if (searchInput === "") {
               return data;
             } else if (
               data.first_name
-                .toLowerCase()
+                ?.toLowerCase()
                 .includes(searchInput.toLowerCase()) ||
-              data.last_name.toLowerCase().includes(searchInput.toLowerCase())
+              data.last_name?.toLowerCase().includes(searchInput.toLowerCase())
+            ) {
+              return data;
+            } else if (
+              data.fa_name?.toLowerCase().includes(searchInput.toLowerCase())
+            ) {
+              return data;
+            } else if (
+              data.club_name?.toLowerCase().includes(searchInput.toLowerCase())
             )
               return data;
           })
           .map((data, index) => {
-            const id = data.id
-            data = data.first_name + " " + " " + data.last_name;
+            const stateId = data.id;
+            if (data.first_name) {
+              data = data.first_name + " " + " " + data.last_name;
+            } else if (data.fa_name) {
+              data = data.fa_name;
+            } else if (data.club_name) {
+              data = data.club_name;
+            }
+
             return (
-              <table key={index}>
-                <tbody>
-                  <tr>
-                    <td>
-                      <button onClick={() =>{playerId(id)}}>{data}</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <ul class="list-none mt-4">
+                <button
+                  onClick={() => {
+                    playerId(stateId);
+                  }}
+                >
+                  {data}
+                </button>
+              </ul>
             );
           })}
       </div>

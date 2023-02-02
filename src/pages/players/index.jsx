@@ -5,35 +5,42 @@ import SearchBar from "../../components/common/search/Search";
 import Image from "next/image";
 
 const Players = () => {
+  let url = "";
   const [data, setData] = useState("");
-   const [bata, setBata] = useState([]);
+  const [bata, setBata] = useState([]);
+  const [stateId, setStateId] = useState();
 
- 
-let url = ""
-
-
-  const getAllData = (id) => {
-    if(id){
-       url =`http://localhost:3001/players/${id}`
-    }else url = `http://localhost:3001/players`
+  const getOneData = () => {    
+      url = `http://localhost:3001/players/${stateId}`;
     axios
       .get(url)
-      .then((response) => {
-        if(!id) {setData(response.data[0]) }else 
-        setData(response.data)
-        
-         setBata(response.data)
-         console.log(url)
+      .then((response) => {   
+        setData(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
- 
+  const getAllData = () => {
+   url = `http://localhost:3001/players`;
+    axios
+      .get(url)
+      .then((response) => {
+        setBata(response.data);
+        setData(response.data[0]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   useEffect(() => {
     getAllData();
-  }, []);
+    if(stateId){
+      getOneData()
+    }
+  }, [stateId]);
 
   return (
     <div>
@@ -47,7 +54,7 @@ let url = ""
             >
               <p>Search Players</p>
             </div>
-            <SearchBar bata={bata}></SearchBar> 
+            <SearchBar bata={bata} setStateId={setStateId} ></SearchBar>
           </div>
           <div
             className={`w-4/5 flex flex-wrap  ${style.soup} ${style.aboutContainer}`}
@@ -121,7 +128,9 @@ let url = ""
 
                   <div className="w-full lg:w-3/5 pl-4">
                     <p className="text-lg font-bold mb-2">About</p>
-                    <p className="text-md  text-justify text-md">{data.about}</p>
+                    <p className="text-md  text-justify text-md">
+                      {data.about}
+                    </p>
                   </div>
                 </div>
               </div>
