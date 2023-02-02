@@ -9,10 +9,10 @@ const Home = () => {
         <div className={`pt-24 ${styles.homeContainer}`}>
           <div className="container pt-12 px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
             <div className="pt-12 flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left  text-white">
-              <h1 className="my-4 antialiased bg-indigo-600 p-3 opacity-90 rounded-md text-4xl pt-4 text-yellow-300 font-bold leading-tight italic">
+              <h1 className="my-4 antialiased bg-indigo-800 p-3 opacity-90 rounded-md text-4xl pt-4 text-yellow-300 font-bold leading-tight italic">
                 Welcome to Deenozer.com!!
               </h1>
-              <p className="leading-normal bg-indigo-600 p-3 opacity-90 rounded-md antialiased text-2xl mb-8">
+              <p className="leading-normal bg-indigo-800 p-3 opacity-90 rounded-md antialiased text-2xl mb-8">
                   Your Go-to page for latest Football information!  
               </p>
             </div>

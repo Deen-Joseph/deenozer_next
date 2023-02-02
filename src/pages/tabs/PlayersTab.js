@@ -187,6 +187,15 @@ const PlayersTab = () => {
               ></input>
             </li>
             <li>
+              <label htmlFor="ran">Ranking</label>
+              <input
+                type="ran"
+                id="ran"
+                placeholder="Enter Ranking"
+                {...register("ranking")}
+              ></input>
+            </li>
+            <li>
               <label htmlFor="about">About</label>
               <textarea
                 rows="6"

@@ -1,35 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "../../../styles/Search.module.css";
 
-const SearchBar = () => {
+const SearchBar = ({ bata }) => {
+
   const [searchInput, setSearchInput] = useState("");
 
-  const countries = [
-    { name: "Belgium", continent: "Europe" },
-    { name: "India", continent: "Asia" },
-    { name: "Bolivia", continent: "South America" },
-    { name: "Ghana", continent: "Africa" },
-    { name: "Japan", continent: "Asia" },
-    { name: "Canada", continent: "North America" },
-    { name: "New Zealand", continent: "Australasia" },
-    { name: "Italy", continent: "Europe" },
-    { name: "South Africa", continent: "Africa" },
-    { name: "China", continent: "Asia" },
-    { name: "Paraguay", continent: "South America" },
-    { name: "Usa", continent: "North America" },
-    { name: "France", continent: "Europe" },
-    { name: "Botswana", continent: "Africa" },
-    { name: "Spain", continent: "Europe" },
-    { name: "Senegal", continent: "Africa" },
-    { name: "Brazil", continent: "South America" },
-    { name: "Denmark", continent: "Europe" },
-    { name: "Mexico", continent: "South America" },
-    { name: "Australia", continent: "Australasia" },
-    { name: "Tanzania", continent: "Africa" },
-    { name: "Bangladesh", continent: "Asia" },
-    { name: "Portugal", continent: "Europe" },
-    { name: "Pakistan", continent: "Asia" },
-  ];
+  // const countries = [
+  //   { name: "Belgium", continent: "Europe" },
+  //   { name: "India", continent: "Asia" },
+  //   { name: "Bolivia", continent: "South America" },
+  //   { name: "Ghana", continent: "Africa" },
+  //   { name: "Japan", continent: "Asia" },
+  //   { name: "Canada", continent: "North America" },
+  //   { name: "New Zealand", continent: "Australasia" },
+  //   { name: "Italy", continent: "Europe" },
+  //   { name: "South Africa", continent: "Africa" },
+  //   { name: "China", continent: "Asia" },
+  //   { name: "Paraguay", continent: "South America" },
+  //   { name: "Usa", continent: "North America" },
+  //   { name: "France", continent: "Europe" },
+  //   { name: "Botswana", continent: "Africa" },
+  //   { name: "Spain", continent: "Europe" },
+  //   { name: "Senegal", continent: "Africa" },
+  //   { name: "Brazil", continent: "South America" },
+  //   { name: "Denmark", continent: "Europe" },
+  //   { name: "Mexico", continent: "South America" },
+  //   { name: "Australia", continent: "Australasia" },
+  //   { name: "Tanzania", continent: "Africa" },
+  //   { name: "Bangladesh", continent: "Asia" },
+  //   { name: "Portugal", continent: "Europe" },
+  //   { name: "Pakistan", continent: "Asia" },
+  // ];
+
+  const playerId = (id) => {
+    console.log("id",id);
+  };
 
   return (
     <div className={styles.soup}>
@@ -40,30 +45,31 @@ const SearchBar = () => {
         onChange={(event) => setSearchInput(event.target.value)}
       />
       <div className="grid h-screen place-items-center overflow-y-scroll">
-        {/* <div className="text-3xl mb-4 font-bold"> 
-          <p>Country</p>
-        </div> */}
-        {countries
-          .filter((country) => {
+       
+        {bata
+          .filter((data) => {
             if (searchInput === "") {
-              return country;
+              return data;
             } else if (
-              country.name.toLowerCase().includes(searchInput.toLowerCase())
+              data.first_name
+                .toLowerCase()
+                .includes(searchInput.toLowerCase()) ||
+              data.last_name.toLowerCase().includes(searchInput.toLowerCase())
             )
-              return country;
+              return data;
           })
-          .map((country, index) => {
+          .map((data, index) => {
+            const id = data.id
+            data = data.first_name + " " + " " + data.last_name;
             return (
               <table key={index}>
-              <tbody >
-                <tr>
-                  <td>
-                    <button>
-                    {country.name}
-                    </button>
+                <tbody>
+                  <tr>
+                    <td>
+                      <button onClick={() =>{playerId(id)}}>{data}</button>
                     </td>
-                </tr>
-              </tbody>
+                  </tr>
+                </tbody>
               </table>
             );
           })}

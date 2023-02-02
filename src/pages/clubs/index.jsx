@@ -5,8 +5,8 @@ import Image from "next/image";
 const Clubs = () => {
   return (
     <div>
-      <div class="m-12">
-        <div class="flex flex-wrap gap-10">
+      <div className="m-12">
+        <div className="flex flex-wrap gap-10">
           <div
             className={`w-1/6 soup flex-wrap rounded-lg shadow-lg ${style.colorCont}`}
           >
@@ -16,26 +16,26 @@ const Clubs = () => {
             <SearchBar></SearchBar>
           </div>
           <div
-            class={`w-4/5 flex flex-wrap  ${style.soup} ${style.aboutContainer}`}
+          className={`w-4/5 flex flex-wrap  ${style.soup} ${style.aboutContainer}`}
           >
             <div
-              class="bg-cover bg-bottom  w-full md:w-1/4 h-70"
+            className="bg-cover bg-bottom  w-full md:w-1/4 h-70"
               style={{
                 backgroundImage:
                   " url('https://logos-world.net/wp-content/uploads/2020/06/Manchester-United-logo.png')",
               }}
             >
-              <div class="absolute text-xl">
-                <i class="fa fa-heart text-white hover:text-red-light ml-4 mt-4 cursor-pointer"></i>
+              <div className="absolute text-xl">
+                <i className="fa fa-heart text-white hover:text-red-light ml-4 mt-4 cursor-pointer"></i>
               </div>
             </div>
 
-            <div class={`w-full md:w-2/3 ${style.aboutContainer}`}>
-              <div class="h-full mx-auto px-6 md:px-0 md:pt-6 md:pb-6 md:-ml-6 relative">
+            <div className={`w-full md:w-2/3 ${style.aboutContainer}`}>
+              <div className="h-full mx-auto px-6 md:px-0 md:pt-6 md:pb-6 md:-ml-6 relative">
                 <div
-                  class={`bg-white lg:h-full p-6 -mt-6 md:mt-0 relative mb-4 md:mb-0 flex flex-wrap md:flex-wrap items-center ${style.about}`}
+                  className={`bg-white lg:h-full p-6 -mt-6 md:mt-0 relative mb-4 md:mb-0 flex flex-wrap md:flex-wrap items-center ${style.about}`}
                 >
-                  <div class="w-full lg:w-2/6 lg:border-right lg:border-solid text-center md:text-left ml-6 mb-2 ">
+                  <div className="w-full lg:w-2/6 lg:border-right lg:border-solid text-center md:text-left ml-6 mb-2 ">
                     <table>
                       <tbody>
                         <tr>
@@ -82,9 +82,9 @@ const Clubs = () => {
                     </table>
                   </div>
 
-                  <div class="w-full lg:w-3/5 pl-2 ">
-                    <p class="text-lg font-bold mb-2">About</p>
-                    <p class="text-md  text-justify text-md">
+                  <div className="w-full lg:w-3/5 pl-2 ">
+                    <p className="text-lg font-bold mb-2">About</p>
+                    <p className="text-md  text-justify text-md">
                       Manchester United Football Club, commonly referred to as
                       Man United (often stylised as Man Utd), or simply United,
                       is a professional football club based in Old Trafford,
